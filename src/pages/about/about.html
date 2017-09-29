@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title [ngStyle]="{'text-align':'center'}">
+      <img src="assets/img/pic1.png"/>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="submitForm" (ngSubmit)="loginForm()">
+    <ion-list inset padding>
+      <ion-item>
+        <ion-input type="text"  formControlName="account" placeholder="请输入您的手机号码" value="" clearInput  (blur)="checkPhone()" (input)="checkEmpty()"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button  ion-button block type="submit"  color="orange">提交</button>
+  </form>
+
+   <div style="color: #e85a16">
+     {{requireWarnning}}
+    </div>
+</ion-content>

@@ -1,0 +1,70 @@
+<!--
+  Generated template for the Vote page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-header>
+    <ion-title [ngStyle]="{'text-align':'center'}">
+      <img src="assets/img/pic1.png" class=""/>
+    </ion-title>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let item of items">
+
+        <ion-col col-4 *ngIf="item[0]">
+          <img src={{item[0].VPicture}}>
+        </ion-col>
+        <ion-col col-2 padding-vertical *ngIf="item[0]">
+          <div>
+            <label>{{item[0].VName}}</label>
+          </div>
+          <div>
+            <label>票数</label>
+          </div>
+          <div>
+            {{item[0].VCount}}
+          </div>
+          <div>
+            <button ion-button small="true" color="orange" (click)="getProfile(item[0])">事迹</button>
+          </div>
+        </ion-col>
+
+
+       <ion-col col-4>
+          <img src={{item[1].VPicture}} *ngIf="item[1]">
+        </ion-col>
+        <ion-col col-2 padding-vertical>
+          <div *ngIf="item[1]">
+            <label>{{item[1].VName}}</label>
+          </div>
+          <div *ngIf="item[1]">
+            <label>票数</label>
+          </div>
+          <div *ngIf="item[1]">
+            {{item[1].VCount}}
+          </div>
+          <div *ngIf="item[1]">
+            <button ion-button small="true" color="orange" (click)="getProfile(item[1])">事迹</button>
+          </div>
+        </ion-col>
+
+        <ion-col col-4  style="padding: 0px">
+          <button ion-button  block round style="margin-top: 0.0rem;padding-left: 0.0em;padding-right: 0.0em;" (click)="clickDisableBtn($event.target,item[0])">选择</button>
+        </ion-col>
+        <ion-col col-4 offset-2 style="padding: 0px" *ngIf="item[1]">
+          <button ion-button block round style="margin-top: 0.0rem;padding-left: 0.0em;padding-right: 0.0em;" (click)="clickDisableBtn($event.target,item[1])">选择</button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8 offset-2>
+        <button ion-button round block (click)="btnVote()" color="orange">投票</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

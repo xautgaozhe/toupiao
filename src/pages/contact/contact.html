@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title [ngStyle]="{'text-align':'center'}">
+      <img src="assets/img/pic1.png"/>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="submitForm1" (ngSubmit)="addComment(submitForm1.value)">
+    <ion-list inset padding>
+      <ion-item>
+        <ion-textarea type="text"  style="border-style: ridge" formControlName="info" placeholder="请输入您的内容" value="" clearInput ></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <button  ion-button block type="submit"  color="orange">发言</button>
+  </form>
+  <ion-card *ngFor="let com of coms">
+    <ion-card-content >
+      <div>{{ com.username }}</div>
+      <div>
+        <label>{{ com.dept}}</label>
+        <label> {{ com.comDate }}</label>
+      </div>
+      <div>
+        <p>{{ com.comContent }}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <div style="color: #e85a16">
+    {{requireWarnning}}
+  </div>
+</ion-content>
